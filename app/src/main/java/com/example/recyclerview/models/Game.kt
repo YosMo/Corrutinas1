@@ -8,3 +8,4 @@ data class Game (
     val console: String,
     @DrawableRes val image: Int
 )
+
