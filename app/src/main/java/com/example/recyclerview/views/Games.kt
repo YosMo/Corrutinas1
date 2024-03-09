@@ -21,27 +21,28 @@ import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.recyclerview.R
+import com.example.recyclerview.models.Game
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
-fun CardGame(){
+fun CardGame(game: Game){
     Card(modifier = Modifier.padding(8.dp)){
         Row(modifier = Modifier.fillMaxWidth()){
             Image(modifier = Modifier
                 .height(160.dp)
                 .width(120.dp)
-                , painter = painterResource(id = R.drawable.dbd)
+                , painter = painterResource(id = game.image)
                 , contentDescription = "vacio"
                 , contentScale = ContentScale.Crop)
 
             Spacer(modifier = Modifier.width(10.dp))
             Column {
-                Text(text = "Dead By Daylight",
+                Text(text = game.name,
                     modifier = Modifier.padding(top=8.dp),
                     color= Color(0xFF673AB7)
                 )
 
-                GameDataView(Modifier.fillMaxWidth())
+                GameDataView(Modifier.fillMaxWidth(),game.console, game.price)
 
                 Button(onClick = { /*TODO*/ }) {
                     Text(text = "Comprar")
